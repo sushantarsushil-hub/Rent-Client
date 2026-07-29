@@ -1,0 +1,41 @@
+'use client';
+
+import React, { useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import { useAuth } from '../../providers/AuthProvider';
+import PageLoader from './PageLoader';
+import Forbidden from '../../views/public/Forbidden';
+
+export const ProtectedRoute = ({ allowedRoles = [], children }) => {
+  const { isAuthenticated, user, loading } = useAuth();
+  const router = useRouter();
+  const pathname = usePathname() || '/';
+
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      router.replace(`/login?redirect=${encodeURIComponent(pathname || '/')}`);
+    }
+  }, [loading, isAuthenticated, router, pathname]);
+
+  if (loading) {
+    return <PageLoader text="Restoring authentication session..." />;
+  }
+
+  if (!isAuthenticated) {
+    return <PageLoader text="Redirecting to sign-in portal..." />;
+  }
+
+  if (allowedRoles.length > 0) {
+    const userRole = (user?.role || '').toLowerCase();
+    const normalizedAllowed = allowedRoles.map((r) => r.toLowerCase());
+    const isAuthorized = normalizedAllowed.includes(userRole) || userRole === 'admin';
+
+    if (!isAuthorized) {
+      return <Forbidden />;
+    }
+  }
+
+  return children;
+};
+
+export default ProtectedRoute;
