@@ -72,7 +72,7 @@ export const OwnerHome = () => {
       animate="visible"
       className="space-y-8 max-w-7xl mx-auto"
     >
-      {/* Welcome Banner */}
+      
       <motion.div
         variants={cardVariants}
         className="bg-gradient-to-r from-slate-900 via-slate-800 to-blue-950 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-md space-y-3"
@@ -89,9 +89,9 @@ export const OwnerHome = () => {
         </p>
       </motion.div>
 
-      {/* Summary Cards Row (3 Summary Cards) */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {/* 1. Total Earnings */}
+        
         <motion.div
           variants={cardVariants}
           className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-2xs flex items-center justify-between hover:shadow-md transition-all duration-200"
@@ -106,7 +106,7 @@ export const OwnerHome = () => {
           </div>
         </motion.div>
 
-        {/* 2. Total Properties */}
+       
         <motion.div
           variants={cardVariants}
           className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-2xs flex items-center justify-between hover:shadow-md transition-all duration-200"
@@ -121,7 +121,7 @@ export const OwnerHome = () => {
           </div>
         </motion.div>
 
-        {/* 3. Total Bookings */}
+       
         <motion.div
           variants={cardVariants}
           className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-2xs flex items-center justify-between hover:shadow-md transition-all duration-200"
@@ -137,7 +137,7 @@ export const OwnerHome = () => {
         </motion.div>
       </div>
 
-      {/* 12-Month Recharts Monthly Earnings Line Chart */}
+      
       <motion.div
         variants={cardVariants}
         className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-2xs space-y-6"

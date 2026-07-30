@@ -116,7 +116,7 @@ export const Home = () => {
     router.push(`/properties?${params.toString()}`);
   };
 
-  // Accessible animation variants respecting prefers-reduced-motion
+  
   const fadeSlideUp = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     show: {
@@ -148,7 +148,7 @@ export const Home = () => {
 
   return (
     <div className="space-y-20 pb-20 overflow-hidden">
-      {/* 1. Hero / Banner Section */}
+      
       <section className="relative min-h-[640px] bg-slate-950 text-white flex items-center justify-center pt-16 pb-28 px-4 sm:px-6 lg:px-8 border-b border-slate-800/80">
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl" />
@@ -195,7 +195,7 @@ export const Home = () => {
             Seamlessly search, filter, and book verified oceanfront villas, downtown penthouses, and mountain chalets with instant host confirmation.
           </motion.p>
 
-          {/* 2. Property Search Bar */}
+          
           <motion.div
             initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.98, y: shouldReduceMotion ? 0 : 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -225,7 +225,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 3. Featured Properties Section */}
+      
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="Curated Listings"
@@ -240,7 +240,7 @@ export const Home = () => {
           }
         />
 
-        {/* Loading Skeleton */}
+        
         {isFeaturedLoading && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch mt-8">
             {Array.from({ length: 6 }).map((_, idx) => (
@@ -249,7 +249,7 @@ export const Home = () => {
           </div>
         )}
 
-        {/* Error State Callout */}
+        
         {isFeaturedError && !isFeaturedLoading && (
           <div className="mt-8">
             <ErrorState
@@ -261,7 +261,7 @@ export const Home = () => {
           </div>
         )}
 
-        {/* Empty State */}
+        
         {!isFeaturedLoading && !isFeaturedError && featuredProperties?.length === 0 && (
           <div className="mt-8">
             <EmptyState
@@ -274,7 +274,7 @@ export const Home = () => {
           </div>
         )}
 
-        {/* Success Data Grid with Framer Motion Stagger Animation (Max 6) */}
+        
         {!isFeaturedLoading && !isFeaturedError && featuredProperties?.length > 0 && (
           <motion.div
             initial="hidden"
@@ -292,7 +292,7 @@ export const Home = () => {
         )}
       </section>
 
-      {/* 4. Why Choose Us Section */}
+      
       <section className="bg-white py-20 border-y border-slate-200/90 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
@@ -352,7 +352,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 5. Customer Reviews Section */}
+      
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="Guest Feedback"
@@ -400,7 +400,7 @@ export const Home = () => {
         </motion.div>
       </section>
 
-      {/* 6. Top Locations */}
+      
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="Popular Cities"
@@ -436,7 +436,7 @@ export const Home = () => {
         </motion.div>
       </section>
 
-      {/* 7. Recently Added Properties */}
+     
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="Fresh Listings"
@@ -472,7 +472,7 @@ export const Home = () => {
         )}
       </section>
 
-      {/* 8. Rental Statistics */}
+      
       <section className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-800">
@@ -496,7 +496,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 9. Trusted Owners Spotlight */}
+     
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           badge="Superhost Partners"
@@ -532,7 +532,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 10. Final Conversion CTA */}
+     
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-blue-900 via-indigo-950 to-violet-950 text-white rounded-3xl p-8 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl border border-indigo-500/30 relative overflow-hidden">
           <div className="absolute -right-20 -top-20 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />

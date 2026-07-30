@@ -142,7 +142,7 @@ export const MyProperties = () => {
 
       {!isLoading && !isError && properties?.length > 0 && (
         <>
-          {/* Table Format (Desktop) */}
+        
           <div className="hidden lg:block bg-white rounded-3xl border border-slate-200/90 shadow-2xs overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs text-slate-700">
@@ -221,7 +221,7 @@ export const MyProperties = () => {
             </div>
           </div>
 
-          {/* Cards Format (Mobile) */}
+          
           <div className="lg:hidden space-y-4">
             {properties.map((prop) => (
               <div key={prop.id} className="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-2xs space-y-3">
@@ -290,7 +290,7 @@ export const MyProperties = () => {
         </>
       )}
 
-      {/* Admin Rejection Feedback Modal */}
+      
       {selectedPropertyForModal && (
         <Modal
           isOpen={!!selectedPropertyForModal}
@@ -318,7 +318,7 @@ export const MyProperties = () => {
         </Modal>
       )}
 
-      {/* Update Property Details Modal */}
+     
       {editingProperty && (
         <Modal
           isOpen={!!editingProperty}
@@ -462,7 +462,7 @@ export const MyProperties = () => {
         </Modal>
       )}
 
-      {/* Delete Property Confirmation Dialog */}
+      
       <ConfirmDialog
         isOpen={!!deletePropertyId}
         title="Delete Property Listing?"

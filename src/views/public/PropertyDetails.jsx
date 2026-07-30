@@ -66,7 +66,7 @@ export const PropertyDetails = ({ idOverride }) => {
     }
   }, [isTenant, userFavorites, property, id]);
 
-  // React Hook Form for Review Submission
+  
   const {
     register,
     handleSubmit,
@@ -148,7 +148,7 @@ export const PropertyDetails = ({ idOverride }) => {
     setIsBookingModalOpen(true);
   };
 
-  // Review submission handled via React Hook Form & backend authoritative checks
+  
   const onReviewSubmit = async (formData) => {
     if (!isAuthenticated) {
       showToast.error('Please log in as an eligible tenant to submit a review.');
@@ -176,7 +176,7 @@ export const PropertyDetails = ({ idOverride }) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
-      {/* Header Info Bar */}
+      
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-2">
           <div className="flex items-center gap-2">
@@ -196,7 +196,7 @@ export const PropertyDetails = ({ idOverride }) => {
           </div>
         </div>
 
-        {/* Favorite Heart Button */}
+        
         <div className="shrink-0">
           <Button
             variant="outline"
@@ -211,7 +211,7 @@ export const PropertyDetails = ({ idOverride }) => {
         </div>
       </div>
 
-      {/* Property Image Gallery */}
+      
       <div className="space-y-3">
         <div className="h-64 sm:h-80 md:h-[480px] w-full rounded-3xl overflow-hidden bg-slate-100 border border-slate-200/90 shadow-xs">
           <img
@@ -241,10 +241,10 @@ export const PropertyDetails = ({ idOverride }) => {
         )}
       </div>
 
-      {/* Details Grid */}
+     
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div className="lg:col-span-2 space-y-10">
-          {/* Key Specifications */}
+          
           <div className="grid grid-cols-3 gap-2 sm:gap-4 p-4 sm:p-6 bg-white rounded-3xl border border-slate-200/90 shadow-2xs text-center">
             <div>
               <Bed className="w-5 h-5 text-blue-600 mx-auto mb-1" />
@@ -269,13 +269,13 @@ export const PropertyDetails = ({ idOverride }) => {
             </div>
           </div>
 
-          {/* Property Description */}
+          
           <div className="space-y-3">
             <h3 className="text-xl font-black text-slate-900">Property Description</h3>
             <p className="text-sm text-slate-600 font-medium leading-relaxed">{property.description}</p>
           </div>
 
-          {/* Included Amenities */}
+          
           <div className="space-y-3 pt-6 border-t border-slate-200">
             <h3 className="text-xl font-black text-slate-900">Included Amenities</h3>
             <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
@@ -298,7 +298,7 @@ export const PropertyDetails = ({ idOverride }) => {
             </div>
           </div>
 
-          {/* Extra Features */}
+         
           {property.extraFeatures && property.extraFeatures.length > 0 && (
             <div className="space-y-3 pt-6 border-t border-slate-200">
               <h3 className="text-xl font-black text-slate-900">Extra Property Features</h3>
@@ -313,7 +313,7 @@ export const PropertyDetails = ({ idOverride }) => {
             </div>
           )}
 
-          {/* Host Information Card */}
+          
           <div className="p-5 sm:p-6 bg-white rounded-3xl border border-slate-200/90 shadow-2xs space-y-4">
             <h3 className="text-lg font-black text-slate-900">Property Host Information</h3>
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -341,14 +341,14 @@ export const PropertyDetails = ({ idOverride }) => {
             </div>
           </div>
 
-          {/* Guest Reviews Suite */}
+          
           <div className="space-y-6 pt-6 border-t border-slate-200">
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-black text-slate-900">Guest Reviews ({reviewsList.length})</h3>
               <RatingStars rating={property.rating} showNumeric />
             </div>
 
-            {/* Existing Reviews List */}
+            
             {reviewsList.length === 0 ? (
               <div className="p-8 bg-white rounded-3xl border border-slate-200/90 text-center space-y-2">
                 <MessageSquare className="w-8 h-8 text-slate-300 mx-auto" />
@@ -389,7 +389,7 @@ export const PropertyDetails = ({ idOverride }) => {
               </div>
             )}
 
-            {/* Review Submission Form with React Hook Form & Star Rating UI */}
+            
             <div className="p-6 bg-white rounded-3xl border border-slate-200/90 space-y-5 shadow-2xs">
               <div>
                 <h4 className="text-base font-black text-slate-900">Leave a Property Review</h4>
@@ -399,7 +399,7 @@ export const PropertyDetails = ({ idOverride }) => {
               </div>
 
               <form onSubmit={handleSubmit(onReviewSubmit)} className="space-y-5">
-                {/* 1. Rating Selector UI (1-5 Stars) */}
+                
                 <div>
                   <label className="block text-xs font-extrabold text-slate-800 mb-2">
                     Overall Rating (1 to 5 Stars)
@@ -434,7 +434,7 @@ export const PropertyDetails = ({ idOverride }) => {
                   {errors.rating && <p className="text-[11px] text-rose-600 font-bold mt-1">{errors.rating.message}</p>}
                 </div>
 
-                {/* 2. Review Comment Textarea */}
+                
                 <div>
                   <label className="block text-xs font-extrabold text-slate-800 mb-1.5">
                     Your Review Comment
@@ -468,7 +468,7 @@ export const PropertyDetails = ({ idOverride }) => {
           </div>
         </div>
 
-        {/* Sidebar Booking Card */}
+        
         <div>
           <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-lg sticky top-24 space-y-6">
             <div className="flex items-baseline justify-between border-b border-slate-100 pb-4">

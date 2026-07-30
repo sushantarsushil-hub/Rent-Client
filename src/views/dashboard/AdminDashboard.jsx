@@ -32,7 +32,7 @@ export const AdminDashboard = () => {
         subtitle="Manage registered users, inspect host properties, and review system operations."
       />
 
-      {/* Summary Cards */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex items-center justify-between">
           <div>
@@ -65,7 +65,7 @@ export const AdminDashboard = () => {
         </div>
       </div>
 
-      {/* User Management Table */}
+      
       <div className="space-y-4">
         <h3 className="text-lg font-bold text-slate-900">User & Security Management</h3>
         <Table headers={['User ID', 'Name & Email', 'Role', 'Status', 'Actions']}>

@@ -21,7 +21,7 @@ export const AdminUsers = () => {
   const { data: users = [], isLoading, isError, refetch } = useAdminUsers();
 
   const [updatingId, setUpdatingId] = useState(null);
-  const [pendingRoleChange, setPendingRoleChange] = useState(null); // { user, targetRole }
+  const [pendingRoleChange, setPendingRoleChange] = useState(null); 
 
   if (isLoading) {
     return (
@@ -82,7 +82,7 @@ export const AdminUsers = () => {
           subtitle="View registered accounts, filter user records, and update access permissions."
         />
 
-        {/* Search Bar Input */}
+      
         <div className="relative w-full sm:w-80">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
           <input
@@ -102,12 +102,12 @@ export const AdminUsers = () => {
         <EmptyState title="No matching user accounts found" description="Try adjusting your search criteria." />
       ) : (
         <>
-          {/* Desktop Table View */}
+         
           <div className="hidden md:block">
             <Table headers={tableHeaders}>
               {paginatedUsers.map((usr) => (
                 <TableRow key={usr.id}>
-                  {/* 1. Name & Photo Avatar */}
+                
                   <TableCell>
                     <div className="flex items-center gap-3">
                       {usr.image ? (
@@ -129,14 +129,14 @@ export const AdminUsers = () => {
                     </div>
                   </TableCell>
 
-                  {/* 2. Email */}
+                 
                   <TableCell className="text-xs text-slate-600 font-bold">
                     <span className="flex items-center gap-1.5">
                       <Mail className="w-3.5 h-3.5 text-slate-400" /> {usr.email}
                     </span>
                   </TableCell>
 
-                  {/* 3. Role Badge */}
+                 
                   <TableCell>
                     <span
                       className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider border ${
@@ -152,7 +152,7 @@ export const AdminUsers = () => {
                     </span>
                   </TableCell>
 
-                  {/* 4. Created Date */}
+                  
                   <TableCell className="text-xs text-slate-700 font-bold">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5 text-slate-400" />
@@ -160,7 +160,7 @@ export const AdminUsers = () => {
                     </span>
                   </TableCell>
 
-                  {/* 5. Action: Change Role Select */}
+                 
                   <TableCell align="right">
                     <select
                       value={(usr.role || 'tenant').toLowerCase()}
@@ -178,7 +178,7 @@ export const AdminUsers = () => {
             </Table>
           </div>
 
-          {/* Mobile Cards View */}
+          
           <div className="md:hidden space-y-4">
             {paginatedUsers.map((usr) => (
               <div key={usr.id} className="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-2xs space-y-3">
@@ -228,7 +228,7 @@ export const AdminUsers = () => {
         </>
       )}
 
-      {/* Confirmation Modal before Role Modification */}
+      
       <ConfirmDialog
         isOpen={!!pendingRoleChange}
         title="Confirm User Role Modification?"

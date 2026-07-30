@@ -17,7 +17,7 @@ import { Check, X, Calendar, Phone, Mail, User, Building } from 'lucide-react';
 export const BookingRequests = () => {
   const { data: requests = [], isLoading, isError, refetch } = useOwnerBookingRequests();
   const [processingId, setProcessingId] = useState(null);
-  const [pendingAction, setPendingAction] = useState(null); // { request, action: 'Approved' | 'Rejected' }
+  const [pendingAction, setPendingAction] = useState(null); 
 
   if (isLoading) {
     return (
@@ -86,12 +86,12 @@ export const BookingRequests = () => {
         subtitle="Review booking applications from tenants for your properties. Approve or reject incoming reservation requests."
       />
 
-      {/* Table Format (Desktop) */}
+     
       <div className="hidden md:block">
         <Table headers={tableHeaders}>
           {requests.map((req) => (
             <TableRow key={req.id}>
-              {/* 1. Tenant Information */}
+             
               <TableCell>
                 <div className="space-y-0.5">
                   <p className="font-extrabold text-slate-900 text-sm flex items-center gap-1.5">
@@ -106,7 +106,7 @@ export const BookingRequests = () => {
                 </div>
               </TableCell>
 
-              {/* 2. Property Information */}
+             
               <TableCell>
                 <div className="space-y-0.5">
                   <p className="font-extrabold text-slate-900 text-sm flex items-center gap-1.5">
@@ -116,7 +116,7 @@ export const BookingRequests = () => {
                 </div>
               </TableCell>
 
-              {/* 3. Move-in / Booking Date */}
+              
               <TableCell className="text-xs text-slate-700 font-bold">
                 <span className="flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5 text-slate-400" />
@@ -124,17 +124,17 @@ export const BookingRequests = () => {
                 </span>
               </TableCell>
 
-              {/* 4. Booking Amount */}
+             
               <TableCell className="font-black text-sm text-slate-900">
                 {formatCurrency(req.amount)}
               </TableCell>
 
-              {/* 5. Booking Status */}
+             
               <TableCell>
                 <StatusBadge status={req.status} />
               </TableCell>
 
-              {/* 6. Actions (Approve / Reject) */}
+             
               <TableCell align="right">
                 {(req.status || '').toLowerCase() === 'pending' ? (
                   <div className="flex items-center justify-end gap-2">
@@ -172,7 +172,7 @@ export const BookingRequests = () => {
         </Table>
       </div>
 
-      {/* Cards Format (Mobile) */}
+     
       <div className="md:hidden space-y-4">
         {requests.map((req) => (
           <div key={req.id} className="bg-white p-5 rounded-3xl border border-slate-200/90 shadow-2xs space-y-3">
@@ -231,7 +231,7 @@ export const BookingRequests = () => {
         ))}
       </div>
 
-      {/* Confirmation Modal for Approval or Rejection */}
+     
       <ConfirmDialog
         isOpen={!!pendingAction}
         title={pendingAction?.action === 'Approved' ? 'Approve Booking Request?' : 'Reject Booking Request?'}

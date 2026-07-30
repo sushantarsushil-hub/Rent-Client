@@ -34,7 +34,7 @@ export const PaymentCheckout = () => {
       setIsError(false);
 
       try {
-        // Fetch property details for pricing
+        
         let propData = null;
         try {
           propData = await fetchPropertyDetails(propertyId);
@@ -53,7 +53,7 @@ export const PaymentCheckout = () => {
 
         const totalAmount = (propData?.price || propData?.rent || 450) * 3 + 75;
 
-        // Initialize Stripe payment intent with backend
+        
         const intent = await createStripePaymentIntent({
           propertyId,
           amount: totalAmount,
@@ -116,7 +116,7 @@ export const PaymentCheckout = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Property Summary Card */}
+       
         <div className="md:col-span-5 bg-white p-6 rounded-3xl border border-slate-200/90 shadow-2xs space-y-4">
           <div className="h-44 w-full rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
             <img
@@ -160,7 +160,7 @@ export const PaymentCheckout = () => {
           </div>
         </div>
 
-        {/* Right Column: Stripe Elements Payment Form */}
+        
         <div className="md:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-md">
           <Elements stripe={stripePromise}>
             <StripeCheckoutForm

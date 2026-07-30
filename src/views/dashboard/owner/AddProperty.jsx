@@ -95,7 +95,7 @@ export const AddProperty = () => {
         extraFeatures: formData.extraFeaturesRaw
           ? formData.extraFeaturesRaw.split(',').map((s) => s.trim()).filter(Boolean)
           : ['Keyless Entry', 'High-Speed Wi-Fi'],
-        status: 'pending', // Enforce Pending status by default for new listings
+        status: 'pending', 
       };
 
       await createProperty(propertyPayload);
@@ -116,7 +116,7 @@ export const AddProperty = () => {
         subtitle="Fill in the property details below to submit your listing for platform approval."
       />
 
-      {/* 14. Owner Information Section */}
+     
       <div className="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 rounded-3xl border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <img
@@ -145,7 +145,7 @@ export const AddProperty = () => {
       <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-2xs">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* 1. Property Title */}
+            
             <div className="md:col-span-2">
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <Building className="w-3.5 h-3.5 text-blue-600" /> Property Title
@@ -161,7 +161,7 @@ export const AddProperty = () => {
               {errors.title && <p className="text-[11px] font-medium text-rose-600 mt-1 ml-1">{errors.title.message}</p>}
             </div>
 
-            {/* 2. Location */}
+            
             <div>
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <MapPin className="w-3.5 h-3.5 text-blue-600" /> Location (City, State / Address)
@@ -177,7 +177,7 @@ export const AddProperty = () => {
               {errors.location && <p className="text-[11px] font-medium text-rose-600 mt-1 ml-1">{errors.location.message}</p>}
             </div>
 
-            {/* 4. Property Type (Dropdown) */}
+            
             <div>
               <label className="block text-xs font-extrabold text-slate-700 mb-1 ml-1">Property Type</label>
               <select
@@ -192,7 +192,7 @@ export const AddProperty = () => {
               </select>
             </div>
 
-            {/* 5. Rent (Price) */}
+           
             <div>
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <DollarSign className="w-3.5 h-3.5 text-blue-600" /> Rent Amount ($)
@@ -211,7 +211,7 @@ export const AddProperty = () => {
               {errors.rent && <p className="text-[11px] font-medium text-rose-600 mt-1 ml-1">{errors.rent.message}</p>}
             </div>
 
-            {/* 6. Rent Type (Monthly, Weekly, Daily) */}
+           
             <div>
               <label className="block text-xs font-extrabold text-slate-700 mb-1 ml-1">Rent Type</label>
               <select
@@ -224,7 +224,7 @@ export const AddProperty = () => {
               </select>
             </div>
 
-            {/* 7. Bedrooms */}
+            
             <div>
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <Bed className="w-3.5 h-3.5 text-blue-600" /> Bedrooms
@@ -242,7 +242,7 @@ export const AddProperty = () => {
               {errors.bedrooms && <p className="text-[11px] font-medium text-rose-600 mt-1 ml-1">{errors.bedrooms.message}</p>}
             </div>
 
-            {/* 8. Bathrooms */}
+            
             <div>
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <Bath className="w-3.5 h-3.5 text-blue-600" /> Bathrooms
@@ -260,7 +260,7 @@ export const AddProperty = () => {
               {errors.bathrooms && <p className="text-[11px] font-medium text-rose-600 mt-1 ml-1">{errors.bathrooms.message}</p>}
             </div>
 
-            {/* 9. Property Size */}
+           
             <div className="md:col-span-2">
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <Maximize2 className="w-3.5 h-3.5 text-blue-600" /> Property Size (sqft)
@@ -279,7 +279,7 @@ export const AddProperty = () => {
               {errors.propertySize && <p className="text-[11px] font-medium text-rose-600 mt-1 ml-1">{errors.propertySize.message}</p>}
             </div>
 
-            {/* 2. Description */}
+           
             <div className="md:col-span-2">
               <label className="block text-xs font-extrabold text-slate-700 mb-1 ml-1">Description</label>
               <textarea
@@ -293,7 +293,7 @@ export const AddProperty = () => {
               {errors.description && <p className="text-[11px] font-medium text-rose-600 mt-1 ml-1">{errors.description.message}</p>}
             </div>
 
-            {/* 11. Primary Image URL & Additional Images */}
+            
             <div className="md:col-span-2">
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <ImageIcon className="w-3.5 h-3.5 text-blue-600" /> Primary Image URL
@@ -327,7 +327,7 @@ export const AddProperty = () => {
               />
             </div>
 
-            {/* 10. Amenities (Checkbox Group) */}
+           
             <div className="md:col-span-2 space-y-2">
               <label className="block text-xs font-extrabold text-slate-700 flex items-center gap-1.5 ml-1">
                 <CheckSquare className="w-3.5 h-3.5 text-blue-600" /> Amenities
@@ -347,7 +347,7 @@ export const AddProperty = () => {
               </div>
             </div>
 
-            {/* 12. Extra Features */}
+            
             <div className="md:col-span-2">
               <label className="block text-xs font-extrabold text-slate-700 mb-1 flex items-center gap-1.5 ml-1">
                 <ListPlus className="w-3.5 h-3.5 text-blue-600" /> Extra Features (Comma Separated)

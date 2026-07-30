@@ -39,7 +39,7 @@ export const OwnerDashboard = () => {
         }
       />
 
-      {/* Summary Cards */}
+     
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex items-center justify-between">
           <div>
@@ -72,7 +72,7 @@ export const OwnerDashboard = () => {
         </div>
       </div>
 
-      {/* Properties Management Table */}
+      
       <div className="space-y-4">
         <h3 className="text-lg font-bold text-slate-900">Your Property Listings</h3>
         <Table headers={['Property ID', 'Title & Location', 'Nightly Price', 'Occupancy', 'Status', 'Actions']}>

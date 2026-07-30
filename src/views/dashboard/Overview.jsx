@@ -22,7 +22,7 @@ const Overview = () => {
         subtitle="Monitor performance metrics, recent bookings, and rental earnings."
       />
 
-      {/* Stats Grid */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex items-center justify-between">
           <div>
@@ -75,7 +75,7 @@ const Overview = () => {
         </div>
       </div>
 
-      {/* Recharts Area Chart Card */}
+      
       <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs space-y-6">
         <div className="flex items-center justify-between border-b border-slate-100 pb-4">
           <div>

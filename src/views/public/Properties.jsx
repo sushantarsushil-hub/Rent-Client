@@ -26,7 +26,7 @@ export const Properties = () => {
     limit: Number(searchParams.get('limit')) || 6,
   });
 
-  // Sync state when URL query parameters change externally
+  
   useEffect(() => {
     setFilterState({
       search: searchParams.get('search') || searchParams.get('location') || '',
@@ -41,7 +41,7 @@ export const Properties = () => {
 
   const { search, propertyType, minPrice, maxPrice, sort, page, limit } = filterState;
 
-  // Query Backend with queryParams via TanStack Query
+  
   const queryParams = { search, propertyType, minPrice, maxPrice, sort, page, limit };
   const { data: response, isLoading, isError, error, refetch } = usePropertiesList(queryParams);
 
@@ -102,10 +102,10 @@ export const Properties = () => {
         subtitle="Search, filter, and sort verified urban properties available for immediate booking."
       />
 
-      {/* Filter and Control Bar */}
+      
       <div className="bg-white p-4 sm:p-6 rounded-3xl border border-slate-200/90 shadow-2xs space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3 items-center">
-          {/* 1. Location / Keyword Search */}
+         
           <div className="relative">
             <Search className="absolute left-3.5 top-3 w-4 h-4 text-blue-600 shrink-0" />
             <input
@@ -117,7 +117,7 @@ export const Properties = () => {
             />
           </div>
 
-          {/* 2. Property Type Dropdown */}
+         
           <div>
             <select
               value={propertyType}
@@ -134,7 +134,7 @@ export const Properties = () => {
             </select>
           </div>
 
-          {/* 3. Minimum Price */}
+          
           <div>
             <input
               type="number"
@@ -145,7 +145,7 @@ export const Properties = () => {
             />
           </div>
 
-          {/* 4. Maximum Price */}
+         
           <div>
             <input
               type="number"
@@ -156,7 +156,7 @@ export const Properties = () => {
             />
           </div>
 
-          {/* 5. Sort Options */}
+          
           <div className="relative">
             <select
               value={sort}
@@ -170,7 +170,7 @@ export const Properties = () => {
           </div>
         </div>
 
-        {/* Clear Filters Indicator & Button */}
+       
         {isFiltered && (
           <div className="flex items-center justify-between pt-3 border-t border-slate-100">
             <span className="text-xs font-bold text-slate-500">
@@ -189,7 +189,7 @@ export const Properties = () => {
         )}
       </div>
 
-      {/* 1. Loading Skeleton Grid */}
+     
       {isLoading && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {Array.from({ length: limit || 6 }).map((_, idx) => (
@@ -198,7 +198,7 @@ export const Properties = () => {
         </div>
       )}
 
-      {/* 2. Error State */}
+      
       {isError && !isLoading && (
         <ErrorState
           title="Unable to load property listings"
@@ -208,7 +208,7 @@ export const Properties = () => {
         />
       )}
 
-      {/* 3. Empty State */}
+      
       {!isLoading && !isError && properties.length === 0 && (
         <EmptyState
           title="No approved properties match your criteria"
@@ -218,7 +218,7 @@ export const Properties = () => {
         />
       )}
 
-      {/* 4. Success Property Grid (3 columns desktop, 2 columns tablet, 1 column mobile) */}
+      
       {!isLoading && !isError && properties.length > 0 && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
@@ -227,7 +227,7 @@ export const Properties = () => {
             ))}
           </div>
 
-          {/* Pagination Controls */}
+          
           {paginationMeta.totalPages > 1 && (
             <Pagination
               currentPage={paginationMeta.currentPage || page}

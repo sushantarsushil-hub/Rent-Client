@@ -48,10 +48,10 @@ export const Profile = () => {
 
   const photoPreview = watch('image');
 
-  // TanStack Query Mutation for Profile Update
+  
   const updateProfileMutation = useMutation({
     mutationFn: async (updatedFields) => {
-      // Send allowed fields to backend
+      
       const payload = {
         name: updatedFields.name,
         image: updatedFields.image,
@@ -63,12 +63,12 @@ export const Profile = () => {
         const response = await axiosInstance.patch(API_ENDPOINTS.AUTH.ME, payload);
         return response.data?.data?.user || response.data?.user || payload;
       } catch (_err) {
-        // Fallback for simulated profile update when backend endpoint returns local state
+        
         return payload;
       }
     },
     onSuccess: (updatedData) => {
-      // Update global auth context and query cache
+      
       updateUser(updatedData);
       queryClient.invalidateQueries({ queryKey: ['admin', 'users'] });
       queryClient.invalidateQueries({ queryKey: ['auth', 'me'] });
@@ -94,7 +94,7 @@ export const Profile = () => {
       />
 
       <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-2xs space-y-8">
-        {/* Header Profile Photo & User Badge */}
+        
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-6 border-b border-slate-100">
           <div className="relative group">
             {photoPreview ? (
@@ -145,10 +145,10 @@ export const Profile = () => {
           </div>
         </div>
 
-        {/* Profile Editing Form */}
+       
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Permitted Editable: Full Name */}
+           
             <div>
               <label className="block text-xs font-extrabold text-slate-800 mb-1.5 flex items-center gap-1.5">
                 <User className="w-3.5 h-3.5 text-blue-600" /> Full Name
@@ -161,7 +161,7 @@ export const Profile = () => {
               {errors.name && <p className="text-[11px] text-rose-600 font-bold mt-1">{errors.name.message}</p>}
             </div>
 
-            {/* Read-Only: Email Address */}
+           
             <div>
               <label className="block text-xs font-extrabold text-slate-800 mb-1.5 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
@@ -180,7 +180,7 @@ export const Profile = () => {
               />
             </div>
 
-            {/* Permitted Editable: Profile Photo Image URL */}
+           
             <div>
               <label className="block text-xs font-extrabold text-slate-800 mb-1.5 flex items-center gap-1.5">
                 <Camera className="w-3.5 h-3.5 text-blue-600" /> Profile Photo URL
@@ -199,7 +199,7 @@ export const Profile = () => {
               {errors.image && <p className="text-[11px] text-rose-600 font-bold mt-1">{errors.image.message}</p>}
             </div>
 
-            {/* Permitted Editable: Phone Number */}
+           
             <div>
               <label className="block text-xs font-extrabold text-slate-800 mb-1.5 flex items-center gap-1.5">
                 <Phone className="w-3.5 h-3.5 text-blue-600" /> Contact Phone Number
@@ -211,7 +211,7 @@ export const Profile = () => {
               />
             </div>
 
-            {/* Read-Only: Account Role (Frontend Role Changes Strictly Blocked) */}
+            
             <div>
               <label className="block text-xs font-extrabold text-slate-800 mb-1.5 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
@@ -230,7 +230,7 @@ export const Profile = () => {
               />
             </div>
 
-            {/* Read-Only: Account Creation Date */}
+           
             <div>
               <label className="block text-xs font-extrabold text-slate-800 mb-1.5 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
@@ -250,7 +250,7 @@ export const Profile = () => {
             </div>
           </div>
 
-          {/* Permitted Editable: About / Bio */}
+          
           <div>
             <label className="block text-xs font-extrabold text-slate-800 mb-1.5 flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5 text-blue-600" /> About / Personal Bio
