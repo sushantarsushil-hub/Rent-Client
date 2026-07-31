@@ -12,11 +12,11 @@ A modern, secure, and responsive **Property Rental & Booking Platform** that con
 
 ## 💻 Client Repository
 
-🔗 
+🔗 https://github.com/sushantarsushil-hub/Rent-Client
 
 ## ⚙️ Server Repository
 
-🔗 
+🔗 https://github.com/sushantarsushil-hub/Rent-Server
 
 
 
